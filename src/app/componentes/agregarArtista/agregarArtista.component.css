@@ -1,16 +1,10 @@
 
-/* formulario */
-/* AUTOR:TCL JOHAN + */
-
-
-
-
 .cont-form{
     position: absolute;
     width: 70%;
     height:100%;
     background-color: rgba(0,0,0,0);
-    display: flex;
+    display: none;
     justify-content: center;
     
   

@@ -1,0 +1,13 @@
+    <td>{{artista.nombre}}</td>
+     <td>{{artista.genero}}</td>
+     <td>{{artista.descripcion}}</td>
+     <td>{{artista.fechaCreacion}}</td>
+     <td>
+         <a class="editar" href="" (click)="pasarObjetoApadre(artista)">
+             <i class='bx bxs-edit icono editar'></i>
+         </a>
+         <a class="eliminar" (click)="pasarObjetoApadre(artista)"
+            href="">
+             <i class='bx bxs-trash-alt icono'></i>
+         </a>
+     </td>

@@ -1,0 +1,21 @@
+.tabla-borde, th,td {
+    border:#0acbed 3px solid;
+    padding: 20px;
+    text-align: center;
+
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.icono{
+    font-size: 20px;
+    display: inline-block;
+}
+.eliminar{
+    color:#e74c3c;
+}
+.editar{
+    color: #007bff;  
+    /* #3498db  */
+}
