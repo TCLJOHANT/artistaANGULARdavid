@@ -24,4 +24,10 @@ export class ArtistasComponent {
      this.artistaService.eliminarArtista(artista.id);
   }
 
+
+
+  mostrarForm(){
+    
+  }
+
 }

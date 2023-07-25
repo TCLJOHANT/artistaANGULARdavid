@@ -2,20 +2,22 @@ import { Component } from '@angular/core';
 // import { Artista } from 'src/app/models/artista.model';
 import { Artista } from '../../models/artista.model';
 import { ArtistaService } from 'src/app/servicios/artista.service';
+
 @Component({
   selector: 'app-agregarArtista',
   templateUrl: './agregarArtista.component.html',
   styleUrls: ['./agregarArtista.component.css']
 })
 export class AgregarArtistaComponent {
-
+  dysplayForm: string = 'flex';
   id:number = 0;
   nombre:String =''
   genero:string = '';
   descripcion = '';
   fechaCreacion = new Date()
-
+  
   constructor(private artistaService:ArtistaService){
+    // this.dysplayForm = '';
   } 
   agregar(){
     let artista:Artista;
@@ -30,4 +32,5 @@ export class AgregarArtistaComponent {
       this.artistaService.agregarArtista(artista);
       // alert(JSON.stringify(artista))
 }
+
 }

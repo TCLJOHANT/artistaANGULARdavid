@@ -22,7 +22,8 @@ import { ArtistaComponent } from './componentes/artista/artista.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
