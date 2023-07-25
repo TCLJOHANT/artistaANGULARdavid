@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output,EventEmitter,Input } from '@angular/core';
 // import { Artista } from 'src/app/models/artista.model';
 import { Artista } from '../../models/artista.model';
 import { ArtistaService } from 'src/app/servicios/artista.service';
@@ -9,7 +9,12 @@ import { ArtistaService } from 'src/app/servicios/artista.service';
   styleUrls: ['./agregarArtista.component.css']
 })
 export class AgregarArtistaComponent {
-  dysplayForm: string = 'flex';
+  @Input() mostrarFormulario:boolean = true;
+  //evento de salida
+  // comunicacion el componente artista con Artistas, permitiendo
+  //emitir evento personalizado y pueda ser capturado  por su  padre.
+  @Output() mostrarForm:EventEmitter <boolean> = new EventEmitter();
+
   id:number = 0;
   nombre:String =''
   genero:string = '';
@@ -17,7 +22,6 @@ export class AgregarArtistaComponent {
   fechaCreacion = new Date()
   
   constructor(private artistaService:ArtistaService){
-    // this.dysplayForm = '';
   } 
   agregar(){
     let artista:Artista;
@@ -32,5 +36,10 @@ export class AgregarArtistaComponent {
       this.artistaService.agregarArtista(artista);
       // alert(JSON.stringify(artista))
 }
-
+pasarvar(){
+  this.mostrarForm.emit(this.mostrarFormulario)
+}
+salirDeForm(){
+  this.mostrarFormulario =false;
+}
 }
