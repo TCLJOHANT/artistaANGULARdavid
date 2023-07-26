@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ArtistaService {
-  urlApi:string ='http://localhost/apiArtistaPhpPuro/index.php'
+  urlApi:string ='http://localhost/apiPHP/index.php'
   //se está inyectando una instancia de  HttpClient  en la clase
   // actual para poder utilizarla en otros métodos y realizar operaciones HTTP.
   constructor(private http: HttpClient) { } 
@@ -25,6 +25,7 @@ export class ArtistaService {
     return this.http.get<Artista[]>(this.urlApi);
   }
   eliminarArtista(idArtista:number){
+    alert(idArtista)
     let u =`${this.urlApi}?id=${idArtista}`
     alert(u)
     return this.http.delete<Artista[]>(`${this.urlApi}?id=${idArtista}`).subscribe(response => {
@@ -34,6 +35,8 @@ export class ArtistaService {
   
   editarArtista(idArtista:number){
     alert(idArtista)
+    let u =`${this.urlApi}?id=${idArtista}`
+    alert(u)
     return this.http.get<Artista[]>(`${this.urlApi}?id=${idArtista}`).subscribe(response => {
       console.log(response); // Aquí puedes manejar la respuesta del servidor
     });

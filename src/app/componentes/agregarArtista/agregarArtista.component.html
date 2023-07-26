@@ -1,8 +1,8 @@
-<div  class="cont-form" id="formCrear" [style.display]="mostrarFormulario ? 'flex' : 'none'" > 
+<div  class="cont-form" id="formCrear" [ngStyle]="mostrarFormulario ? { display: 'flex' } : { display: 'none' }"> 
     <!--se ejecute cuando enviamos form (ngsubmit)-->
     <form  method="post"  (ngSubmit)="agregar()">
         <h1>Crear Artista</h1>
-        <i class='bx bx-exit salir' id="salir" (click)="salirDeForm()"></i>
+        <i class='bx bx-exit salir' id="salir"></i>
         <div>
             <label for="name">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required class="form-control" autofocus  [(ngModel)]="nombre">

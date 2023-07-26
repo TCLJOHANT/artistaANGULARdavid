@@ -9,12 +9,10 @@ import { ArtistaService } from 'src/app/servicios/artista.service';
   styleUrls: ['./agregarArtista.component.css']
 })
 export class AgregarArtistaComponent {
-  @Input() mostrarFormulario:boolean = true;
+ mostrarForm:boolean = true;
   //evento de salida
   // comunicacion el componente artista con Artistas, permitiendo
   //emitir evento personalizado y pueda ser capturado  por su  padre.
-  @Output() mostrarForm:EventEmitter <boolean> = new EventEmitter();
-
   id:number = 0;
   nombre:String =''
   genero:string = '';
@@ -36,10 +34,8 @@ export class AgregarArtistaComponent {
       this.artistaService.agregarArtista(artista);
       // alert(JSON.stringify(artista))
 }
-pasarvar(){
-  this.mostrarForm.emit(this.mostrarFormulario)
-}
-salirDeForm(){
-  this.mostrarFormulario =false;
-}
+
+
+
+mostrarFormulario: boolean = false;
 }

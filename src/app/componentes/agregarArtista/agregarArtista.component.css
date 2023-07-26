@@ -1,7 +1,7 @@
 .cont-form{
     position: absolute;
     width: 70%;
-    height:70%;
+
     background-color: rgba(0,0,0,0);
     display:flex;
     justify-content: center;
