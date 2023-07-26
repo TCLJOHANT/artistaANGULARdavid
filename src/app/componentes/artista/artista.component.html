@@ -1,9 +1,25 @@
     <!-- para pasar infromacion de un componente a otro
      debo referenciar a propìedad de entrada  [artista]="artista" -->
+     <div  class="cont-form" id="formCrear" [ngStyle]="mostrarFormulario ? { display: 'flex' } : { display: 'none' }"> 
+        <!--se ejecute cuando enviamos form (ngsubmit)-->
+        <form  method="post"  (ngSubmit)="agregar()">
+            <h1>Crear Artista</h1>
+            <i class='bx bx-exit salir' (click)="salirForm()" id="salir"></i>
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required class="form-control" autofocus  [(ngModel)]="nombre">
+                <label for="mail">Genero:</label>
+                <input type="text" id="genero" name="genero" required class="form-control" autofocus  [(ngModel)]="genero">
+                <label for="bio">Descripción:</label>
+                <textarea rows="2" id="descripcion" name="descripcion" required onclick="" class="form-control"  [(ngModel)]="descripcion"></textarea>
+            </div>
+            <button   type="submit">Guardar</button>
+        </form>
+    </div>
      <div class="container">
         <h2 class="subtitle">Artistas<span class="point">.</span></h2>
         <p class="copy__section">Aquí podrás gestionar los artistas</p>
-        <a href="#" class="cta crearBoton"  id="crearBoton">Crear Artista</a>
+        <a href="#" class="cta crearBoton"  (click)="mostrarForm()" id="crearBoton">Crear Artista</a>
     </div>
         <table class="tabla-borde">
             <thead class="tabla-borde">
@@ -21,12 +37,12 @@
             <td>{{artista.nombre}}</td>
                 <td>{{artista.genero}}</td>
                 <td>{{artista.descripcion}}</td>
-                <td>{{artista.fechaCreacion}}</td>
+                <td>{{artista.created_at}}</td>
                 <td>
-                    <a class="editar" href="" (click)="editarArtista(artista)">
+                    <a class="editar" href="" (click)="editarArtista(artista.id)">
                         <i class='bx bxs-edit icono editar'></i>
                     </a>
-                    <a class="eliminar" (click)="eliminarArtista(artista)"
+                    <a class="eliminar" (click)="eliminarArtista(artista.id)"
                         href="">
                         <i class='bx bxs-trash-alt icono'></i>
                     </a>

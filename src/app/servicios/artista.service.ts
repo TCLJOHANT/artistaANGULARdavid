@@ -9,27 +9,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ArtistaService {
-  urlApi:string ='http://localhost/apiPHP/index.php'
+  urlApi:string ='http://localhost/apiPHP/'
   //se está inyectando una instancia de  HttpClient  en la clase
   // actual para poder utilizarla en otros métodos y realizar operaciones HTTP.
   constructor(private http: HttpClient) { } 
 
   agregarArtista(artista:Artista){
     alert(JSON.stringify(artista))
-    return this.http.post<Artista[]>(this.urlApi,artista).subscribe(response => {
-      console.log(response); // Aquí puedes manejar la respuesta del servidor
+    return this.http.post<Artista[]>(`${this.urlApi}metodos/crear.php`,JSON.stringify(artista)).subscribe(response => {
+      console.log(response); 
     });
 
   }
   conseguirArtista(){
-    return this.http.get<Artista[]>(this.urlApi);
+    return this.http.get<Artista[]>(`${this.urlApi}metodos/leer.php`);
   }
+
   eliminarArtista(idArtista:number){
     alert(idArtista)
     let u =`${this.urlApi}?id=${idArtista}`
     alert(u)
-    return this.http.delete<Artista[]>(`${this.urlApi}?id=${idArtista}`).subscribe(response => {
-      console.log(response); // Aquí puedes manejar la respuesta del servidor
+    return this.http.delete<Artista[]>(`${this.urlApi}metodos/eliminar.php?id=${idArtista}`).subscribe(response => {
+      console.log(response); 
     });
   }
   
@@ -37,8 +38,8 @@ export class ArtistaService {
     alert(idArtista)
     let u =`${this.urlApi}?id=${idArtista}`
     alert(u)
-    return this.http.get<Artista[]>(`${this.urlApi}?id=${idArtista}`).subscribe(response => {
-      console.log(response); // Aquí puedes manejar la respuesta del servidor
+    return this.http.get<Artista[]>(`${this.urlApi}metodos/actualizar.php?id=${idArtista}`).subscribe(response => {
+      console.log(response); 
     });
   }
 }

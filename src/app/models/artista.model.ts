@@ -3,5 +3,5 @@ export interface Artista{
     nombre:String;
     genero:String;
     descripcion:String;
-    fechaCreacion:Date
+    created_at:Date
 }
